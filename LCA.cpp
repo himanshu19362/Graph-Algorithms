@@ -11,7 +11,7 @@ void dfs(int node , int par , int depth[] , int parent[][M] , vector<int> graph[
 	if(par == -1)	depth[node] = 0;
 	else	depth[node] = depth[par] + 1;
 
-	parent[node][0] = par;
+	// parent[node][0] = par;
 	for(int neighbour:graph[node]){
 		if(neighbour!=par)	dfs(neighbour , node , depth , parent , graph);
 	}
@@ -19,6 +19,8 @@ void dfs(int node , int par , int depth[] , int parent[][M] , vector<int> graph[
 
 
 int LCA(int u , int v , int depth[] , int parent[][M]){
+	
+	if(u == v)	return u;
 	
 	if(depth[u] < depth[v])		swap(u , v);	//u is at a lower level.
 
@@ -31,7 +33,7 @@ int LCA(int u , int v , int depth[] , int parent[][M]){
 		j++;
 	}
 
-	// if(u == v)	return u;
+	if(u == v)	return u;
 	for(j = M-1 ; j >= 0 ; j--){
 		if(parent[u][j]!=parent[v][j]){
 			u = parent[u][j] , v = parent[v][j];
