@@ -27,6 +27,6 @@ Here , I have implemented different Graph algorithms in C++
 
 * Toposort using Bfs
 
-* Toposort Dfs
+* Toposort using Dfs
 
 * Travelling Salesman Problem (DP wth bitmasking)
